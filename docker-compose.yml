@@ -9,10 +9,4 @@ services:
       - ./config.ini:/mnt/dev/config.ini:ro
     environment:
       - NODEOS_LOG_LEVEL=info
-    networks:
-      - eosio_network
-
-networks:
-  eosio_network:
-    name: eosio_network
- 
+    command: /bin/bash -c "nodeos --data-dir /mnt/dev --config-dir /mnt/dev --snapshot /mnt/dev/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false >> /mnt/dev/nodeos.log 2>&1 &"
