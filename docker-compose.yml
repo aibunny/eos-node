@@ -1,16 +1,20 @@
+version: '3'
+
 services:
   eosio:
-    image: eosio/eos:compile_time_chainid_boxed
+    build: .
     container_name: eosio_pull_api_node
     ports:
       - "8888:8888"
     volumes:
       - ./data:/mnt/dev/data
       - ./config.ini:/mnt/dev/config.ini:ro
-    command: /bin/bash -c "nodeos -e -p eosio --plugin eosio::chain_api_plugin --data-dir /mnt/dev/data --config-dir /mnt/dev/config --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false"
     environment:
       - NODEOS_LOG_LEVEL=info
+    networks:
+      - eosio_network
 
 networks:
-  default:
+  eosio_network:
     name: eosio_network
+ 
