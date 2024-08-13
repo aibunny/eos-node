@@ -23,8 +23,6 @@ RUN wget $SNAPSHOT_URL -O $SNAPSHOT_PATH && \
     zstd -d $SNAPSHOT_PATH -o $EOSDIR/snapshots/latest.bin && \
     rm $SNAPSHOT_PATH
 
-# Clean up the blocks directory if it exists
-RUN rm -rf $EOSDIR/blocks
 
 # Start the nodeos with the latest snapshot
 CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --snapshot $EOSDIR/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false >> $EOSDIR/nodeos.log 2>&1 &
