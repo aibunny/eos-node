@@ -1,5 +1,4 @@
-
-FROM eosio/eos:compile_time_chainid_boxed
+FROM eosio/eos:v2.1.0
 
 # Install zstd for decompression
 RUN apt-get update && apt-get install -y zstd wget
