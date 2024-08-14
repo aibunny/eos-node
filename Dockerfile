@@ -1,4 +1,4 @@
-FROM eosio/eos:v2.1.0
+FROM FROM eosio/eos:latest
 
 # Install zstd for decompression
 RUN apt-get update && apt-get install -y zstd wget
