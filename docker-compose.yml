@@ -1,12 +1,20 @@
+version: '3'
+
 services:
   eosio:
     build: .
     container_name: eosio_pull_api_node
     ports:
       - "8888:8888"
+      - "9876:9876"
     volumes:
       - ./data:/mnt/dev/data
       - ./config.ini:/mnt/dev/config.ini:ro
     environment:
       - NODEOS_LOG_LEVEL=info
-    command: /bin/bash -c "nodeos --data-dir /mnt/dev --config-dir /mnt/dev --snapshot /mnt/dev/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false"
+    networks:
+      - eosio_network
+
+networks:
+  eosio_network:
+    name: eosio_network
