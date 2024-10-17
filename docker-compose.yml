@@ -12,6 +12,7 @@ services:
       - NODEOS_LOG_LEVEL=info
     networks:
       - eosio_network
+    restart: always
 
 networks:
   eosio_network:
