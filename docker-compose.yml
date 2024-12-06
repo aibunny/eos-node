@@ -5,6 +5,7 @@ services:
     ports:
       - "8888:8888"
       - "9876:9876"
+      - "8080:8080"
     volumes:
       - ./data:/mnt/dev/data
       - ./config.ini:/mnt/dev/config.ini:ro
