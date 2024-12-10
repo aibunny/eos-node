@@ -18,3 +18,10 @@ services:
 networks:
   eosio_network:
     name: eosio_network
+volumes:
+  data:
+    driver: local
+#    driver_opts:
+#      type: none
+#      o: bind
+#      device: .
