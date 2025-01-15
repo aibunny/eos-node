@@ -7,7 +7,7 @@ services:
       - "9876:9876"
       - "8080:8080"
     volumes:
-      - data:/mnt/dev/data
+      - ./data:/mnt/dev/data
       - ./config.ini:/mnt/dev/config.ini:ro
     environment:
       - NODEOS_LOG_LEVEL=info
@@ -18,9 +18,7 @@ services:
 networks:
   eosio_network:
     name: eosio_network
-volumes:
-  data:
-    driver: local
+
 #    driver_opts:
 #      type: none
 #      o: bind
