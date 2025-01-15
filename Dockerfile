@@ -23,11 +23,6 @@ COPY config.ini /mnt/dev/config.ini
 
 # Set environment variables
 ENV EOSDIR=/mnt/dev
-ENV SNAPSHOT_URL=https://snapshots.eosnation.io/eos-v6/latest
-ENV SNAPSHOT_PATH=$EOSDIR/snapshots/latest.bin.zst
-
-# Create necessary directories
-RUN mkdir -p $EOSDIR/snapshots
 
 
 # Clean up the blocks directory if it exists
