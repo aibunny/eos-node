@@ -29,10 +29,6 @@ ENV SNAPSHOT_PATH=$EOSDIR/snapshots/latest.bin.zst
 # Create necessary directories
 RUN mkdir -p $EOSDIR/snapshots
 
-# Download and decompress the latest snapshot
-RUN wget $SNAPSHOT_URL -O $SNAPSHOT_PATH && \
-    zstd -d $SNAPSHOT_PATH -o $EOSDIR/snapshots/latest.bin && \
-    rm $SNAPSHOT_PATH
 
 # Clean up the blocks directory if it exists
 RUN rm -rf $EOSDIR/blocks
@@ -42,4 +38,4 @@ EXPOSE 8888
 EXPOSE 9876
 
 # Start nodeos with the latest snapshot and log to stdout
-CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --snapshot $EOSDIR/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
+CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
