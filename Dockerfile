@@ -1,4 +1,3 @@
-
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -16,30 +15,34 @@ RUN apt-get update && apt-get install -y \
 
 RUN nodeos --full-version
 
-
-WORKDIR /mnt/dev
-
-COPY config.ini /mnt/dev/config.ini
-
 # Set environment variables
 ENV EOSDIR=/mnt/dev
 ENV SNAPSHOT_URL=https://snapshots.eosnation.io/eos-v6/latest
 ENV SNAPSHOT_PATH=$EOSDIR/snapshots/latest.bin.zst
 
-# Create necessary directories
-RUN mkdir -p $EOSDIR/snapshots
+# Create necessary directories and ensure they're empty
+RUN mkdir -p $EOSDIR/snapshots \
+    && mkdir -p $EOSDIR/state \
+    && mkdir -p $EOSDIR/blocks \
+    && mkdir -p $EOSDIR/state-history
+
+WORKDIR $EOSDIR
+
+# Copy config file
+COPY config.ini $EOSDIR/config.ini
 
 # Download and decompress the latest snapshot
 RUN wget $SNAPSHOT_URL -O $SNAPSHOT_PATH && \
     zstd -d $SNAPSHOT_PATH -o $EOSDIR/snapshots/latest.bin && \
-    rm $SNAPSHOT_PATH
-
-# Clean up the blocks directory if it exists
-RUN rm -rf $EOSDIR/blocks
+    rm $SNAPSHOT_PATH && \
+    # Ensure all directories are empty
+    rm -rf $EOSDIR/blocks/* \
+    $EOSDIR/state/* \
+    $EOSDIR/state-history/*
 
 # Expose ports for API and P2P communication
 EXPOSE 8888
 EXPOSE 9876
 
-# Start nodeos with the latest snapshot and log to stdout
-CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --snapshot $EOSDIR/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
+# Start nodeos with the latest snapshot
+CMD ["sh", "-c", "rm -rf $EOSDIR/blocks/* $EOSDIR/state/* $EOSDIR/state-history/* && nodeos --data-dir $EOSDIR --config-dir $EOSDIR --snapshot $EOSDIR/snapshots/latest.bin"]
