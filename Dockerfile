@@ -19,6 +19,7 @@ RUN nodeos --full-version
 ENV EOSDIR=/mnt/dev
 ENV SNAPSHOT_URL=https://snapshots.eosnation.io/eos-v6/latest
 ENV SNAPSHOT_PATH=$EOSDIR/snapshots/latest.bin.zst
+ENV CHAIN_STATE_SIZE=327680  # Increased to 300gb
 
 # Create necessary directories and ensure they're empty
 RUN mkdir -p $EOSDIR/snapshots \
