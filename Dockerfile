@@ -37,4 +37,4 @@ EXPOSE 9876
 RUN rm -rf /mnt/dev/blocks /mnt/dev/state
 
 # Start nodeos with the latest snapshot and log to stdout
-CMD nodeos --data-dir $EOSDIR  --config-dir  $EOSDIR --genesis-json $EOSDIR --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
+CMD nodeos --data-dir $EOSDIR  --config-dir  $EOSDIR --genesis-json $EOSDIR/genesis.json --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
