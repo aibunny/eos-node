@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN nodeos --full-version
 
+RUN nodeos --version
 
 WORKDIR /mnt/dev
 
