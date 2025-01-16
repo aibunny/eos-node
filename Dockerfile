@@ -16,16 +16,23 @@ RUN apt-get update && apt-get install -y \
 
 RUN nodeos --full-version
 
-RUN nodeos --version
 
 WORKDIR /mnt/dev
 
 COPY config.ini /mnt/dev/config.ini
-COPY genesis.json /mnt/dev/genesis.json
 
 # Set environment variables
 ENV EOSDIR=/mnt/dev
+ENV SNAPSHOT_URL=https://snapshots.eosnation.io/eos-v6/latest
+ENV SNAPSHOT_PATH=$EOSDIR/snapshots/latest.bin.zst
 
+# Create necessary directories
+RUN mkdir -p $EOSDIR/snapshots
+
+# Download and decompress the latest snapshot
+RUN wget $SNAPSHOT_URL -O $SNAPSHOT_PATH && \
+    zstd -d $SNAPSHOT_PATH -o $EOSDIR/snapshots/latest.bin && \
+    rm $SNAPSHOT_PATH
 
 # Clean up the blocks directory if it exists
 RUN rm -rf $EOSDIR/blocks
@@ -34,8 +41,5 @@ RUN rm -rf $EOSDIR/blocks
 EXPOSE 8888
 EXPOSE 9876
 
-
-RUN rm -rf /mnt/dev/blocks /mnt/dev/state
-
 # Start nodeos with the latest snapshot and log to stdout
-CMD nodeos --data-dir $EOSDIR  --config-dir  $EOSDIR --genesis-json $EOSDIR/genesis.json --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
+CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --snapshot $EOSDIR/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
