@@ -32,5 +32,8 @@ RUN rm -rf $EOSDIR/blocks
 EXPOSE 8888
 EXPOSE 9876
 
+
+RUN rm -rf /mnt/dev/blocks /mnt/dev/state
+
 # Start nodeos with the latest snapshot and log to stdout
 CMD nodeos --data-dir $EOSDIR  --config-dir $EOSDIR --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
