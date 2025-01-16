@@ -20,6 +20,7 @@ RUN nodeos --full-version
 WORKDIR /mnt/dev
 
 COPY config.ini /mnt/dev/config.ini
+COPY ./genesis.json /mnt/dev/genesis.json
 
 # Set environment variables
 ENV EOSDIR=/mnt/dev
@@ -33,4 +34,4 @@ EXPOSE 8888
 EXPOSE 9876
 
 # Start nodeos with the latest snapshot and log to stdout
-CMD nodeos --data-dir $EOSDIR --config-dir $EOSDIR --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
+CMD nodeos --data-dir $EOSDIR --genesis-json $EOSDIR/genesis.json --config-dir $EOSDIR --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false
