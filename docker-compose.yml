@@ -28,7 +28,7 @@ services:
       - 9090:9090
     restart: always
   grafana:
-      image: grafana:latest
+      image: grafana/grafana
       restart: always
       ports:
         - 80:3000
