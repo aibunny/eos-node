@@ -31,7 +31,7 @@ services:
       image: grafana/grafana
       restart: always
       ports:
-        - 3000:3000
+        - 6000:3000
       volumes:
         - ./grafana/provisioning/:/etc/grafana/provisioning/
         - graf_data:/var/lib/grafana
