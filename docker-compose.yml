@@ -14,11 +14,14 @@ services:
     networks:
       - eosio_network
     restart: always
+
   prometheus:
     image: prom/prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prom_data:/prometheus
+    depends_on:
+      - eosio
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -27,20 +30,25 @@ services:
     ports:
       - 9090:9090
     restart: always
+
   grafana:
-      image: grafana/grafana:6.3.2
       restart: always
+      image: grafana/grafana
+      user: '472'
+      depends_on:
+        - eosio
+        - prometheus
       ports:
         - 6000:3000
       volumes:
+        - grafanadata:/var/lib/grafanadata
         - ./grafana/provisioning/:/etc/grafana/provisioning/
-        - graf_data:/var/lib/grafana
       env_file:
         - ./grafana/config.monitoring
 
 volumes:
     prom_data:
-    graf_data:
+    grafanadata:
     eos_data:
 
 networks:
