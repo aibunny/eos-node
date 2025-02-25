@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97362dfb-ecd5-461a-be0f-8ce7f187f2a9" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2nYu4oEuEtt3okEBYYzFBvA9myH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prod&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aibunny/eos-node&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-WS-242.21829.149" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97362dfb-ecd5-461a-be0f-8ce7f187f2a9" name="Changes" comment="" />
+      <created>1729162141674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729162141674</updated>
+      <workItem from="1729162142707" duration="510000" />
+      <workItem from="1733464374998" duration="1908000" />
+      <workItem from="1733647507824" duration="1195000" />
+      <workItem from="1733834011714" duration="904000" />
+      <workItem from="1733840950498" duration="12000" />
+      <workItem from="1733840971474" duration="2076000" />
+      <workItem from="1736953034217" duration="3396000" />
+      <workItem from="1736960950813" duration="10639000" />
+      <workItem from="1736981217649" duration="7562000" />
+      <workItem from="1737058520148" duration="9259000" />
+      <workItem from="1737131664750" duration="22000" />
+      <workItem from="1737889591945" duration="7907000" />
+      <workItem from="1738098117272" duration="5475000" />
+      <workItem from="1738151070477" duration="12000" />
+      <workItem from="1738151105379" duration="602000" />
+      <workItem from="1738349284413" duration="3687000" />
+      <workItem from="1740220464870" duration="2796000" />
+      <workItem from="1740311714634" duration="12123000" />
+      <workItem from="1740502855471" duration="1000" />
+      <workItem from="1740502892985" duration="5704000" />
+      <workItem from="1740515988422" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ini" />
+  </component>
+</project>
