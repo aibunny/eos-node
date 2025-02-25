@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y \
     libstdc++6 \
     ca-certificates \
     curl \
-    && wget https://github.com/AntelopeIO/leap/releases/download/v5.0.4/leap_5.0.4_amd64.deb -O /tmp/leap_5.0.4_amd64.deb \
-    && apt-get install -y /tmp/leap_5.0.4_amd64.deb \
-    && rm /tmp/leap_5.0.4_amd64.deb
+    && wget https://github.com/AntelopeIO/leap/releases/download/v5.0.4/leap_5.0.3_amd64.deb -O /tmp/leap_5.0.3_amd64.deb \
+    && apt-get install -y /tmp/leap_5.0.3_amd64.deb \
+    && rm /tmp/leap_5.0.3_amd64.deb
 
 RUN nodeos --full-version
 
