@@ -18,31 +18,31 @@ services:
     command: /bin/bash -c "rm -rf /mnt/dev/state && nodeos --data-dir /mnt/dev --config-dir /mnt/dev --snapshot /mnt/dev/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false"
 
 
-  prometheus:
-    image: prom/prometheus
-    volumes:
-      - ./prometheus/:/etc/prometheus/
-      - /data/prom_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
-    ports:
-      - 9090:9090
-    restart: always
-  grafana:
-      image: grafana/grafana:6.3.2
-      restart: always
-      ports:
-        - 3100:3000
-      expose:
-        - 3100
-      volumes:
-        - ./grafana/provisioning/:/etc/grafana/provisioning/
-        - /data/graf_data:/var/lib/grafana
-      env_file:
-        - ./grafana/config.monitoring
+#  prometheus:
+#    image: prom/prometheus
+#    volumes:
+#      - ./prometheus/:/etc/prometheus/
+#      - /data/prom_data:/prometheus
+#    command:
+#      - '--config.file=/etc/prometheus/prometheus.yml'
+#      - '--storage.tsdb.path=/prometheus'
+#      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+#      - '--web.console.templates=/usr/share/prometheus/consoles'
+#    ports:
+#      - 9090:9090
+#    restart: always
+#  grafana:
+#      image: grafana/grafana:6.3.2
+#      restart: always
+#      ports:
+#        - 3100:3000
+#      expose:
+#        - 3100
+#      volumes:
+#        - ./grafana/provisioning/:/etc/grafana/provisioning/
+#        - /data/graf_data:/var/lib/grafana
+#      env_file:
+#        - ./grafana/config.monitoring
 
 networks:
   eosio_network:
