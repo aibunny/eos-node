@@ -9,7 +9,7 @@ services:
     restart:
       always
     volumes:
-      - /data:/mnt/dev/data
+      - /data/eos_data:/mnt/dev/data
       - ./config.ini:/mnt/dev/config.ini:ro
     environment:
       - NODEOS_LOG_LEVEL=info
@@ -41,10 +41,6 @@ services:
         - /data/graf_data:/var/lib/grafana
       env_file:
         - ./grafana/config.monitoring
-
-volumes:
-    prom_data:
-    graf_data:
 
 networks:
   eosio_network:
