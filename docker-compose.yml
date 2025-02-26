@@ -20,7 +20,7 @@ services:
     image: prom/prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
-      - prom_data:/prometheus
+      - /data/prom_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -38,7 +38,7 @@ services:
         - 3100
       volumes:
         - ./grafana/provisioning/:/etc/grafana/provisioning/
-        - graf_data:/var/lib/grafana
+        - /data/graf_data:/var/lib/grafana
       env_file:
         - ./grafana/config.monitoring
 
