@@ -5,6 +5,7 @@ services:
     ports:
       - "8888:8888"
       - "9876:9876"
+      - "9101:9101"
     restart:
       always
     volumes:
