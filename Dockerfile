@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y \
     libstdc++6 \
     ca-certificates \
     curl \
-    && wget https://github.com/AntelopeIO/leap/releases/download/v5.0.3/leap_5.0.3_amd64.deb -O /tmp/leap_5.0.3_amd64.deb \
-    && apt-get install -y /tmp/leap_5.0.3_amd64.deb \
-    && rm /tmp/leap_5.0.3_amd64.deb
+    && wget https://github.com/AntelopeIO/spring/releases/download/v1.1.1/antelope-spring_1.1.1_amd64.deb -O /tmp/antelope-spring_1.1.1_amd64.deb \
+    && apt-get install -y /tmp/antelope-spring_1.1.1_amd64.deb \
+    && rm /tmp/antelope-spring_1.1.1_amd64.deb
 
 RUN nodeos --full-version
 
