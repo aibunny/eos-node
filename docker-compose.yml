@@ -15,6 +15,8 @@ services:
       - NODEOS_LOG_LEVEL=info
     networks:
       - eosio_network
+    command: /bin/bash -c "rm -rf /mnt/dev/state && nodeos --data-dir /mnt/dev --config-dir /mnt/dev --snapshot /mnt/dev/snapshots/latest.bin --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console --http-validate-host=false"
+
 
   prometheus:
     image: prom/prometheus
